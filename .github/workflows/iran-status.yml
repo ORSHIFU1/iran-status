@@ -22,6 +22,8 @@ jobs:
         env:
           RADAR_TOKEN: ${{ secrets.RADAR_TOKEN }}
         run: python3 tools/build_status.py
+      - name: Publish app-version.json
+        run: cp app-version.json site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
